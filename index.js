@@ -22,6 +22,12 @@ db.once('open', () => {
 app.use(bodyParser.json());
 app.use(cors());
 
+// Import routes
+const todoRoutes = require('./routes/todoRoutes');
+
+// Use routes
+app.use('/api/todos', todoRoutes);
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
